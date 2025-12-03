@@ -1,0 +1,34 @@
+import sqlite3
+
+conn = sqlite3.connect("students.db")
+cur = conn.cursor()
+
+cur.execute("""
+CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER,
+    major TEXT
+);
+""")
+
+
+students_list = [
+    ("Dahmane Ali", 22, "Mathematics"),
+    ("Mekkaoui Zahira", 21, "Artificial Intelligence"),
+    ("Toumi Fatima", 23, "Economy"),
+    ("Mahmoudi Reda", 23, "Political Science"),
+    ("Benali Ahmed", 20, "Computer Science"),
+    ("Ayadi Salma", 24, "Biology"),
+    ("Khaldi Amina", 22, "Chemistry"),
+    ("Saidani Rania", 21, "Data Science"),
+    ("Bouazza Samir", 23, "Physics"),
+    ("Merabet Younes", 22, "Statistics")
+]
+
+cur.executemany("INSERT INTO students (name, age, major) VALUES (?, ?, ?)", students_list)
+
+conn.commit()
+conn.close()
+
+print("Database created and 10 students added successfully!")

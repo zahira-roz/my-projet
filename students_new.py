@@ -1,0 +1,23 @@
+import json
+
+students_list = [
+    {"id": 1, "name": "Dahmane Ali", "age": 22, "major": "Mathematics"},
+    {"id": 2, "name": "Mekkaoui Zahira", "age": 21, "major": "Artificial Intelligence"},
+    {"id": 3, "name": "Toumi Fatima", "age": 23, "major": "Economy"},
+    {"id": 4, "name": "Mahmoudi Reda", "age": 23, "major": "Political Science"},
+    {"id": 5, "name": "Benali Ahmed", "age": 20, "major": "Computer Science"},
+    {"id": 6, "name": "Ayadi Salma", "age": 24, "major": "Biology"},
+    {"id": 7, "name": "Khaldi Amina", "age": 22, "major": "Chemistry"},
+    {"id": 8, "name": "Saidani Rania", "age": 21, "major": "Data Science"},
+    {"id": 9, "name": "Bouazza Samir", "age": 23, "major": "Physics"},
+    {"id": 10, "name": "Merabet Younes", "age": 22, "major": "Statistics"}
+]
+
+
+json_file = "students_new.json"
+
+
+with open(json_file, "w", encoding="utf-8") as f:
+    json.dump(students_list, f, indent=4, ensure_ascii=False)
+
+print(f"New JSON file '{json_file}' created successfully!")
